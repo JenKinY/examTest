@@ -1,7 +1,6 @@
-//https://www.cnblogs.com/stargazer7/p/9823227.html
 #include <cstdio>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 #define INIT_SIZE 10
 #define INCREMENT 5
 
@@ -11,7 +10,6 @@
 #define TRUE 1
 #define ERROR 0
 
-// 计算====
 #include<bits/stdc++.h>
 using namespace std;
 char str[1010];
@@ -19,7 +17,7 @@ char s[1010];
 int cnt,val[1010];
 stack<char>c;
 stack<int>v;
-// ====
+
 
 
 typedef char SElemType;
@@ -232,6 +230,7 @@ int main()
 {
 //    测试表达式：
 //    4+(2+8)*[5/(9-4)]@
+//    TODO:带大括号{} 计算
     Stack Sta;
     Stack *S=&Sta;
 
@@ -239,7 +238,7 @@ int main()
 
     printf("请输入表达式：('@'结束):\n");
     if(Judge(S) == 1){
-        printf("It's True!\n");
+        printf("括号匹配\n");
         // 输出表达式及结果
         printf("%s=",str);
         calExpression();
@@ -247,12 +246,15 @@ int main()
     else{
         char e = e=*(--S->top);
         printf("不匹配(栈顶，可能有多个)：%c\n",e);
-        printf("It's False\n");
+        printf("括号不匹配\n");
     }
 
 
     time_t timep;
     time (&timep);
+
+    printf("姓名：游正材\n");
+    printf("学号：2027019214\n");
     printf("现在时间：%s",ctime(&timep));
 
     return 0;
